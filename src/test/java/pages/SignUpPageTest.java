@@ -30,7 +30,7 @@ public class SignUpPageTest extends BaseClassAndroid
 		sp.userSignUp(prop.getProperty("email"), prop.getProperty("password"));
 		sp.loginClick();
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		/*hp.bannerSwipe();
 		Thread.sleep(4000);
 		hp.productScroll();
@@ -41,7 +41,9 @@ public class SignUpPageTest extends BaseClassAndroid
 		hp.scrolltocart();
 		Thread.sleep(5000);
 		/*hp.cartButtonClick();
-		Thread.sleep(5000);*/
+		 */
+		//hp.singleProductScrollAndLongPress();
+		//Thread.sleep(5000);
 	}
 	
 	public void loginClickVerify()

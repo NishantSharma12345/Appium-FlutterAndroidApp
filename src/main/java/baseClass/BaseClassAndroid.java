@@ -47,12 +47,22 @@ public class BaseClassAndroid extends AppiumUtils
 		
 		if(service.isRunning())
 		{*/
+		
 			UiAutomator2Options options = new UiAutomator2Options();
 			options.setDeviceName(prop.getProperty("androidDeviceName"));
-			options.setApp(System.getProperty("user.dir")+"/src/main/java/resources/app-release.apk");
-			//options.setAppPackage("com.example.shop_app");
-			//options.setAppActivity(".MainActivity");
-			
+			//if(!driver.isAppInstalled("com.example.shop_app"))
+	        //{
+				options.setApp(System.getProperty("user.dir")+"/src/main/java/resources/app-release.apk");
+		//	}
+			//else 
+			//{
+				/*options.setAppPackage("com.example.shop_app");
+				options.setAppActivity(".MainActivity");
+				options.setFullReset(false);
+				options.setNoReset(true);*/
+
+			//}
+				
 			driver = new AndroidDriver(/*service.getUrl() != null ? service.getUrl() : */new URL("http://127.0.0.1:4723/"), options);
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		//}			

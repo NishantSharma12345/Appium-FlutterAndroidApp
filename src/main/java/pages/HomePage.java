@@ -36,34 +36,24 @@ public class HomePage extends AndroidGestures
 	private List<WebElement> product1;
 	
 	@AndroidFindBy(accessibility = "Explore Cart Now !!")
-	private WebElement cartButton;
+	private WebElement cartButton;	
 	
-	
-	
-	
+
 	
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
-	        ".scrollIntoView(new UiSelector().text(\"Explore Cart Now !!\"))")
+	        ".scrollIntoView(new UiSelector().text(\"Enter your email address\"))")
 	private WebElement element;
 	
-	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
+/*	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
 	        ".scrollIntoView(new UiSelector().textContains(\"Hyundai\"))")
 	private WebElement element1;
 	
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
 	        ".scrollIntoView(new UiSelector().resourceIdMatches(\".*Explore Cart Now !!.*\"))")
-	private WebElement elementid;
+	private WebElement elementid;*/
 	
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(resourceIdMatches(\".*Explore Cart Now !!.*\"));")
 	private WebElement scroll;
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	public HomePage(AndroidDriver driver)
@@ -149,6 +139,15 @@ public class HomePage extends AndroidGestures
 	
 	public void scrolltocart()
 	{
-		scroll.findElement(AppiumBy.accessibilityId("Explore Cart Now !!")).click();
+		element.click();
+		element.sendKeys("test");
+	}
+	
+	public void singleProductScrollAndLongPress()
+	{
+		scrollGesture(0, 600, 200, 1500, "down");
+		//scrollToText(product.getAttribute("content-desc").substring(0));
+		AppiumUtils.waitForElementToVisible(driver, product);		
+		longClickGesture(product, "2000");
 	}
 }

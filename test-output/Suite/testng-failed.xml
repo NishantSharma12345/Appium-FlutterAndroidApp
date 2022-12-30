@@ -6,14 +6,22 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="pages.HomePageTest">
+      <class name="pages.SignUpPageTest">
         <methods>
+          <include name="init"/>
+          <include name="androidUserSignUpPageTestPerform"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- pages.SignUpPageTest -->
+      <class name="pages.LoginPageTest">
+        <methods>
+          <include name="init"/>
           <include name="tearDown"/>
           <include name="configureAppium"/>
           <include name="androidUserLoginPageTestPerform"/>
-          <include name="init"/>
         </methods>
-      </class> <!-- pages.HomePageTest -->
+      </class> <!-- pages.LoginPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
