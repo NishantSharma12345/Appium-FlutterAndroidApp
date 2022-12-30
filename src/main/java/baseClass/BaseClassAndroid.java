@@ -56,10 +56,10 @@ public class BaseClassAndroid extends AppiumUtils
 		//	}
 			//else 
 			//{
-				/*options.setAppPackage("com.example.shop_app");
+				options.setAppPackage("com.example.shop_app");
 				options.setAppActivity(".MainActivity");
 				options.setFullReset(false);
-				options.setNoReset(true);*/
+				options.setNoReset(true);
 
 			//}
 				
