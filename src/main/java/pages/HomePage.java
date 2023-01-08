@@ -38,10 +38,10 @@ public class HomePage extends AndroidGestures
 	@AndroidFindBy(accessibility = "Explore Cart Now !!")
 	private WebElement cartButton;	
 	
-
+	@AndroidFindBy(xpath = "android.widget.EditText")
 	
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
-	        ".scrollIntoView(new UiSelector().text(\"Enter your email address\"))")
+	        ".scrollIntoView(new UiSelector().text(\"FeedBack Enter your feedback\"))")
 	private WebElement element;
 	
 /*	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
@@ -71,7 +71,7 @@ public class HomePage extends AndroidGestures
 	public void headerTextVerify()
 	{
 		Assert.assertEquals(exploreLabel.getAttribute("content-desc"), "EXPLORE");
-		Assert.assertEquals(checkSomeLabel.getAttribute("content-desc"), "check some out of here!!");
+		Assert.assertEquals(checkSomeLabel.getAttribute("content-desc"), "Check some out of here!!");
 	}
 	
 	public void bannerSwipe()
@@ -83,7 +83,6 @@ public class HomePage extends AndroidGestures
 	public void singleProductScrollDown()
 	{
 		scrollGesture(0, 600, 200, 1500, "down");
-		//scrollToText(product.getAttribute("content-desc").substring(0));
 		AppiumUtils.waitForElementToVisible(driver, product);		
 		product.click();
 	}

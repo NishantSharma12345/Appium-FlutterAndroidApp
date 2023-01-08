@@ -69,6 +69,18 @@ public class AppiumUtils
 		return destination;
 	}
 	
+	public static void sleep(int sec) 
+	{
+	    try
+	    {
+	    	Thread.sleep(sec*1000);
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	}
+	
 	public static boolean retryingFindClick(WebElement element) 
 	{
 	    boolean result = false;
@@ -85,6 +97,7 @@ public class AppiumUtils
 	        {
 	        	e.printStackTrace();
 	        }
+	        sleep(1);
 	        attempts++;
 	    }
 	    return result;

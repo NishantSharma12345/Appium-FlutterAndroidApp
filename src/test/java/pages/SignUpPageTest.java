@@ -11,6 +11,7 @@ public class SignUpPageTest extends BaseClassAndroid
 	SignUpPage sp;
 	HomePage hp;
 	ProductPage pp;
+	OTPPage otpp;
 	
 	@BeforeClass
 	public void init()
@@ -19,6 +20,7 @@ public class SignUpPageTest extends BaseClassAndroid
 		sp = new SignUpPage(driver);
 		hp = new HomePage(driver);
 		pp = new ProductPage(driver);
+		otpp = new OTPPage(driver);
 	}
 	
 	@Test
@@ -30,6 +32,7 @@ public class SignUpPageTest extends BaseClassAndroid
 		sp.userSignUp(prop.getProperty("email"), prop.getProperty("password"));
 		sp.loginClick();
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
+		otpp.enterOTPNumber();
 		//Thread.sleep(5000);
 		/*hp.bannerSwipe();
 		Thread.sleep(4000);
