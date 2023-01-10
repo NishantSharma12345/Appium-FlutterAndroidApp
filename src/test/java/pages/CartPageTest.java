@@ -26,7 +26,7 @@ public class CartPageTest extends BaseClassAndroid
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
 		hp.cartButtonClick();
 		cp.emptyOrNotEmptyCartPage();
-		hp.productsSwipe();
+		//hp.productsSwipe();
 		pp.cartButtonClick();
 		pp.backButtonClick();
 		hp.cartButtonClick();

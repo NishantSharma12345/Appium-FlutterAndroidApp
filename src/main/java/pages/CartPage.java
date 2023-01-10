@@ -12,6 +12,9 @@ public class CartPage
 {
 	AndroidDriver driver;
 	
+	@AndroidFindBy(accessibility = "Back")
+	private WebElement backButton;
+	
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc='Your Cart Is Empty']")
 	private WebElement emptyCartLabel;
 	
@@ -27,6 +30,10 @@ public class CartPage
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
+	public void backButtonClick() 
+	{
+		backButton.click();
+	}
 	public void backToHomeButtonClick()
 	{
 		backToHomeButton.click();

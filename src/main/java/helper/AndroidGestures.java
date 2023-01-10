@@ -39,12 +39,13 @@ public class AndroidGestures
 		}while(canScrollMore);
 	}
 	
-	public void swipeGesture(WebElement element,String direction)
+	public void swipeGesture(WebElement element,String direction, double percent)
 	{
 		((JavascriptExecutor)driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
 				"elementId", ((RemoteWebElement)element).getId(),
 				"direction", direction,
-				"percent", 0.75
+				"percent", percent,
+				"speed", 5 * driver.getDisplayDensity()
 				));
 	}
 	
@@ -72,7 +73,9 @@ public class AndroidGestures
 		((JavascriptExecutor)driver).executeScript("mobile: dragGesture", ImmutableMap.of(
 				"elementId", ((RemoteWebElement)element).getId(),
 				"endX", endX,
-				"endY", endY
+				"endY", endY,
+				"speed", 0.5 * driver.getDisplayDensity()
+
 				));
 	}
 	

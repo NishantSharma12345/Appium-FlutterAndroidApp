@@ -29,7 +29,7 @@ public class OrderConfirmedPageTest extends BaseClassAndroid
 	public void androidOrderConfirmationPageTestPerform()
 	{
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		hp.singleProductScrollDown();
+		//hp.singleProductScrollDown();
 		pp.cartButtonClick();
 		pp.backButtonClick();
 		hp.cartButtonClick();

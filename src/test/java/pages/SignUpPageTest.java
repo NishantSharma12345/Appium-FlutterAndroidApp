@@ -12,7 +12,7 @@ public class SignUpPageTest extends BaseClassAndroid
 	HomePage hp;
 	ProductPage pp;
 	OTPPage otpp;
-	
+	CartPage cp;
 	@BeforeClass
 	public void init()
 	{
@@ -21,27 +21,37 @@ public class SignUpPageTest extends BaseClassAndroid
 		hp = new HomePage(driver);
 		pp = new ProductPage(driver);
 		otpp = new OTPPage(driver);
+		cp = new CartPage(driver);
 	}
 	
 	@Test
 	public void androidUserSignUpPageTestPerform() throws InterruptedException
 	{
-		lp.signUpClick();
+		/*lp.signUpClick();
 		sp.signUpHeaderVerify();
 		loginClickVerify();
 		sp.userSignUp(prop.getProperty("email"), prop.getProperty("password"));
-		sp.loginClick();
+		sp.loginClick();*/
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
 		otpp.enterOTPNumber();
-		//Thread.sleep(5000);
+		Thread.sleep(5000);
+		hp.singleProductScrollAndLongPress(); 
+		Thread.sleep(4000);
+		hp.cartButtonClick();
+		cp.backButtonClick();
+		hp.sendFeedback();
+		//hp.productScrollUpAndDown(pp);
+		Thread.sleep(4000);
 		/*hp.bannerSwipe();
 		Thread.sleep(4000);
-		hp.productScroll();
+		/*hp.productScroll();
 		Thread.sleep(5000);
 		pp.backButtonClick();
 		Thread.sleep(5000);*/
-		//hp.productScrollUpAndDown(pp);
-		hp.scrolltocart();
+		//hp.productScrollUpAndDown(pp);swipeGesture(bannerImages1.get(0), "left");
+		//hp.scrolltocart();
+		/*hp.singleProductScrollDown();
+        pp.dragAndDropQuantityInCart();
 		Thread.sleep(5000);
 		/*hp.cartButtonClick();
 		 */

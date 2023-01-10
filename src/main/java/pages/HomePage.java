@@ -13,140 +13,124 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePage extends AndroidGestures
-{
+public class HomePage extends AndroidGestures {
 	AndroidDriver driver;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]")
 	private WebElement logoutButton;
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc='EXPLORE']")
 	private WebElement exploreLabel;
-	
+
 	@AndroidFindBy(accessibility = "check some out of here!!")
 	private WebElement checkSomeLabel;
-	
-	@AndroidFindBy(xpath = "(//android.widget.ImageView)[1]")
-	private WebElement bannerImages;
-	
+
+	@AndroidFindBy(xpath = "//android.widget.ImageView")
+	private List<WebElement> bannerImages;
+
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Hyundai')]")
 	private WebElement product;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'From:')]")
-	private List<WebElement> product1;
-	
+	private List<WebElement> products;
+
 	@AndroidFindBy(accessibility = "Explore Cart Now !!")
-	private WebElement cartButton;	
+	private WebElement cartButton;
+
+	@AndroidFindBy(accessibility = "Okay")
+	private WebElement okayButton;
 	
-	@AndroidFindBy(xpath = "android.widget.EditText")
+	@AndroidFindBy(accessibility = "Feedback")
+	private WebElement feedbackLabel;
+
+	@AndroidFindBy(xpath = "//android.widget.EditText[@text='Enter your feedback']")
+	private WebElement feedbackField;
 	
-	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
-	        ".scrollIntoView(new UiSelector().text(\"FeedBack Enter your feedback\"))")
-	private WebElement element;
+	@AndroidFindBy(accessibility = "Send")
+	private WebElement sendButton;
 	
-/*	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
-	        ".scrollIntoView(new UiSelector().textContains(\"Hyundai\"))")
-	private WebElement element1;
-	
-	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
-	        ".scrollIntoView(new UiSelector().resourceIdMatches(\".*Explore Cart Now !!.*\"))")
-	private WebElement elementid;*/
-	
-	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(resourceIdMatches(\".*Explore Cart Now !!.*\"));")
-	private WebElement scroll;
-	
-	
-	public HomePage(AndroidDriver driver)
+	public HomePage(AndroidDriver driver) 
 	{
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
-	public void logoutButtonClick()
+
+	public void logoutButtonClick() 
 	{
 		logoutButton.click();
 	}
 
-	public void headerTextVerify()
+	public void headerTextVerify() 
 	{
 		Assert.assertEquals(exploreLabel.getAttribute("content-desc"), "EXPLORE");
 		Assert.assertEquals(checkSomeLabel.getAttribute("content-desc"), "Check some out of here!!");
 	}
-	
-	public void bannerSwipe()
+
+	public void bannerSwipe() 
 	{
-		AppiumUtils.waitForElementToBeClickable(driver, bannerImages);		
-		swipeGesture(bannerImages, "right");
+		AppiumUtils.waitForElementToBeClickable(driver, bannerImages.get(0));
+		for (int i = 0; i < bannerImages.size(); i++) 
+		{
+			swipeGesture(bannerImages.get(i), "left", 0.75);
+		}
 	}
-	
-	public void singleProductScrollDown()
+
+	/*
+	 * public void singleProductScrollDown() { scrollGesture(0, 600, 200, 1500,
+	 * "down"); AppiumUtils.waitForElementToVisible(driver, product);
+	 * product.click(); }
+	 */
+
+	public void singleProductScrollAndLongPress() 
 	{
-		scrollGesture(0, 600, 200, 1500, "down");
-		AppiumUtils.waitForElementToVisible(driver, product);		
-		product.click();
+		scrollToText("Enter your feedback");
+		for (int i = 0; i < products.size(); i++) 
+		{
+			//AppiumUtils.waitForElementToVisible(driver, products.get(i));
+			longClickGesture(products.get(i), "2000");			
+			doubleClickGesture(okayButton);
+			swipeGesture(products.get(i), "left", 0.20);
+		}	
 	}
-	
+
 	public void productScrollUpAndDown(ProductPage pp) 
 	{
-		if(!product1.get(0).isDisplayed())
-		{
-			scrollGesture(0, 600, 200, 1500, "down");
-
-			for(int i = 0; i < product1.size() + 1; i++)
+		swipeGesture(products.get(0), "right", 2.00);
+		//if (!products.get(2).isDisplayed()) 
+		//{
+			/*for (int i = 3; i < products.size(); i--) 
 			{
-				//if(i==2)
-				//{
-					swipeGesture(product1.get(i), "right");
-					//Thread.sleep(2000);
-				//}
-				AppiumUtils.waitForElementToVisible(driver, product1.get(i));
-				product1.get(i).click();
+				
+				//AppiumUtils.waitForElementToVisible(driver, products.get(i));
+				products.get(i).click();
 				pp.backButtonClick();
-				//swipeGesture(product1.get(i+1), "right");				
+				swipeGesture(products.get(i), "right", 0.20);
+				if(i==0) {
+					break;
+				}
 			}
-		}
-		else
-		{
-			scrollGesture(0, -600, 200, 1500, "up");
-		}		
+		//}
+		/*
+		 * else { scrollGesture(0, -600, 200, 1500, "up"); }
+		 */
+	}
+
+	public void cartButtonClick() 
+	{
+		Assert.assertEquals(cartButton.getAttribute("content-desc"), "Explore Cart Now !!");
+		cartButton.click();
 	}
 	
-	public void productsSwipe() 
+	public void sendFeedback()
 	{
-		AppiumUtils.waitForElementToBeClickable(driver, product);		
-		swipeGesture(product, "right");
-		product.click();
+		Assert.assertEquals(feedbackLabel.getAttribute("content-desc"), "Feedback");
+		Assert.assertEquals(feedbackField.getText(), "Enter your feedback");
+		feedbackField.click();
+		feedbackField.sendKeys("Good Product");
+		driver.hideKeyboard();
+		Assert.assertEquals(sendButton.getAttribute("content-desc"), "Send");
+		sendButton.click();
 	}
-	
-	public void cartButtonClick()
-	{
-		if(!product.isDisplayed())
-		{
-			scrollGesture(0, 400, 0, 1800, "down");
-			AppiumUtils.waitForElementToVisible(driver, cartButton);
-			cartButton.click();
-		}
-		else
-		{
-			scrollGesture(0, 100, 0, 400, "down");
-			AppiumUtils.waitForElementToVisible(driver, cartButton);
-			Assert.assertEquals(cartButton.getAttribute("content-desc"), "Explore Cart Now !!");
-			cartButton.click();
-		}
-	}
-	
-	public void scrolltocart()
-	{
-		element.click();
-		element.sendKeys("test");
-	}
-	
-	public void singleProductScrollAndLongPress()
-	{
-		scrollGesture(0, 600, 200, 1500, "down");
-		//scrollToText(product.getAttribute("content-desc").substring(0));
-		AppiumUtils.waitForElementToVisible(driver, product);		
-		longClickGesture(product, "2000");
-	}
+
 }

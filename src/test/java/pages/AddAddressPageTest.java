@@ -27,7 +27,7 @@ public class AddAddressPageTest extends BaseClassAndroid
 	public void androidAddAddressAndCheckoutPerform()
 	{
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		hp.singleProductScrollDown();
+		//hp.singleProductScrollDown();
 		pp.cartButtonClick();
 		pp.backButtonClick();
 		hp.cartButtonClick();
