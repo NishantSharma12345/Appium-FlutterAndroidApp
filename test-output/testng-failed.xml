@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pages.SignUpPageTest">
+      <class name="pages.ProductPageTest">
         <methods>
-          <include name="init"/>
-          <include name="androidUserSignUpPageTestPerform"/>
+          <include name="androidProductPageTestPerform"/>
           <include name="tearDown"/>
           <include name="configureAppium"/>
+          <include name="init"/>
         </methods>
-      </class> <!-- pages.SignUpPageTest -->
+      </class> <!-- pages.ProductPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

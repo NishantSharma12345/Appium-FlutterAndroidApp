@@ -76,44 +76,41 @@ public class HomePage extends AndroidGestures {
 		}
 	}
 
-	/*
-	 * public void singleProductScrollDown() { scrollGesture(0, 600, 200, 1500,
-	 * "down"); AppiumUtils.waitForElementToVisible(driver, product);
-	 * product.click(); }
-	 */
+	
+	  public void singleProductScrollDown() 
+	  { 
+		  scrollToText("Enter your feedback");
+	      products.get(0).click(); 
+	  }
+	 
 
-	public void singleProductScrollAndLongPress() 
+	public void productScrollUpAndDown(ProductPage pp) 
 	{
 		scrollToText("Enter your feedback");
 		for (int i = 0; i < products.size(); i++) 
 		{
-			//AppiumUtils.waitForElementToVisible(driver, products.get(i));
-			longClickGesture(products.get(i), "2000");			
-			doubleClickGesture(okayButton);
-			swipeGesture(products.get(i), "left", 0.20);
-		}	
-	}
-
-	public void productScrollUpAndDown(ProductPage pp) 
-	{
-		swipeGesture(products.get(0), "right", 2.00);
-		//if (!products.get(2).isDisplayed()) 
-		//{
-			/*for (int i = 3; i < products.size(); i--) 
-			{
-				
-				//AppiumUtils.waitForElementToVisible(driver, products.get(i));
-				products.get(i).click();
-				pp.backButtonClick();
-				swipeGesture(products.get(i), "right", 0.20);
-				if(i==0) {
-					break;
-				}
-			}
+			products.get(i).click();
+		    pp.backButtonClick();
+		    swipeGesture(products.get(i), "left", 0.20);
+		}
 		//}
 		/*
 		 * else { scrollGesture(0, -600, 200, 1500, "up"); }
 		 */
+	}
+	
+	public void singleProductScrollAndLongPress() 
+	{
+		for (int i = 2; i < products.size(); i--) 
+		{
+			longClickGesture(products.get(i), "2000");			
+			doubleClickGesture(okayButton);
+			swipeGesture(products.get(i), "right", 0.20);
+			if(i==0) 
+			{
+				break;
+			}
+		}	
 	}
 
 	public void cartButtonClick() 

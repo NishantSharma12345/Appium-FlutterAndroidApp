@@ -8,6 +8,7 @@ import baseClass.BaseClassAndroid;
 public class ProductPageTest extends BaseClassAndroid
 {
 	LoginPage lp;
+	OTPPage otpp;
 	HomePage hp;
 	ProductPage pp;
 	
@@ -15,6 +16,7 @@ public class ProductPageTest extends BaseClassAndroid
 	public void init()
 	{
 		lp = new LoginPage(driver);
+		otpp = new OTPPage(driver);
 		hp = new HomePage(driver);
 		pp = new ProductPage(driver);
 	}
@@ -23,7 +25,9 @@ public class ProductPageTest extends BaseClassAndroid
 	public void androidProductPageTestPerform()
 	{
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		//hp.singleProductScrollDown();
+		otpp.enterOTPNumber();
+		hp.singleProductScrollDown();
+		pp.dragAndDropQuantityInCart();
 		pp.cartButtonClick();
 		pp.backButtonClick();
 	}

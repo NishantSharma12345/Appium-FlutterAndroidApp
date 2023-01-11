@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import helper.AndroidGestures;
+import helper.AppiumUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -36,10 +37,12 @@ public class ProductPage extends AndroidGestures
 	public void cartButtonClick()
 	{
 		cartButton.click();
+		AppiumUtils.sleep(4000);
 	}
 	
 	public void dragAndDropQuantityInCart()
 	{
-		dragGesture(quantityNumber,970,2190);
+		dragGesture(quantityNumber,970,2000);
+		AppiumUtils.sleep(4000);
 	}
 }

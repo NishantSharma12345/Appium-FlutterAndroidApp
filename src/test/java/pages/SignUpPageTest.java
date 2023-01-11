@@ -35,7 +35,10 @@ public class SignUpPageTest extends BaseClassAndroid
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
 		otpp.enterOTPNumber();
 		Thread.sleep(5000);
-		hp.singleProductScrollAndLongPress(); 
+		// 
+		hp.bannerSwipe();
+		hp.productScrollUpAndDown(pp);
+		hp.singleProductScrollAndLongPress();
 		Thread.sleep(4000);
 		hp.cartButtonClick();
 		cp.backButtonClick();
