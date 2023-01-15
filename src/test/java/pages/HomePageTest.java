@@ -8,26 +8,33 @@ import baseClass.BaseClassAndroid;
 public class HomePageTest extends BaseClassAndroid
 {
 	LoginPage lp;
+	OTPPage otpp;
 	HomePage hp;
 	ProductPage pp;
+	CartPage cp;
 	
 	@BeforeClass
 	public void init()
 	{
 		lp = new LoginPage(driver);
+		otpp = new OTPPage(driver);
 		hp = new HomePage(driver);
 		pp = new ProductPage(driver);
+		cp = new CartPage(driver);
 	}
 
 	@Test
 	public void androidUserLoginPageTestPerform() throws InterruptedException
 	{
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		hp.headerTextVerify();
+		otpp.enterOTPNumber();
+		hp.headerTextVerify();		
 		hp.bannerSwipe();
 		hp.productScrollUpAndDown(pp);
-		hp.productScrollUpAndDown(pp);
-		hp.logoutButtonClick();
+		hp.singleProductScrollAndLongPress();
+		hp.cartButtonClick();
+		cp.backButtonClick();
+		hp.sendFeedback();
 	}
 	
 }

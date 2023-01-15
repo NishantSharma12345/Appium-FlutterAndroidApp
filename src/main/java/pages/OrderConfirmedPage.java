@@ -15,7 +15,7 @@ public class OrderConfirmedPage
 	@AndroidFindBy(accessibility = "Order Confirmed!!")
 	private WebElement orderConfirmedLabel;
 	
-	@AndroidFindBy(accessibility = "//android.view.View[@content-desc='Go Back To Home Page!!']")
+	@AndroidFindBy(xpath = "//android.view.View[@content-desc='Go Back To Home Page!!']")
 	private WebElement backToHomePageButton;
 	
 	public OrderConfirmedPage(AndroidDriver driver)

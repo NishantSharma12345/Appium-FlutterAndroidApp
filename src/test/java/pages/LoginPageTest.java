@@ -18,12 +18,11 @@ public class LoginPageTest extends BaseClassAndroid
 	}
 	
 	@Test
-	public void androidUserLoginPageTestPerform() throws InterruptedException
+	public void androidUserLoginPageTestPerform()
 	{
 		lp.loginHeaderVerify();
 		signUpClickVerify();
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		Thread.sleep(5000);
 	}
 	
 	public void signUpClickVerify()

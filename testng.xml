@@ -7,15 +7,13 @@
 	<test thread-count="5" name="Test">
 		<classes>
 		    <class name="pages.SignUpPageTest" />
-		    <class name="pages.LoginPageTest" />			
-		<!--
 		    <class name="pages.LoginPageTest" />
+		    <class name="pages.OTPPageTest" />			
 		    <class name="pages.HomePageTest" />
 		    <class name="pages.ProductPageTest" />
 		    <class name="pages.CartPageTest" />
-		    <class name="pages.AddressPageTest" />
+		    <class name="pages.AddAddressPageTest" />
 		    <class name="pages.OrderConfirmedPageTest" />
-		-->
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

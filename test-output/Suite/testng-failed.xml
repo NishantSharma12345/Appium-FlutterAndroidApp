@@ -6,6 +6,30 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="pages.AddAddressPageTest">
+        <methods>
+          <include name="init"/>
+          <include name="androidAddAddressAndCheckoutPerform"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- pages.AddAddressPageTest -->
+      <class name="pages.OrderConfirmedPageTest">
+        <methods>
+          <include name="androidOrderConfirmationPageTestPerform"/>
+          <include name="init"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- pages.OrderConfirmedPageTest -->
+      <class name="pages.CartPageTest">
+        <methods>
+          <include name="init"/>
+          <include name="tearDown"/>
+          <include name="androidCartPageTestPerform"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- pages.CartPageTest -->
       <class name="pages.SignUpPageTest">
         <methods>
           <include name="init"/>
@@ -14,14 +38,14 @@
           <include name="configureAppium"/>
         </methods>
       </class> <!-- pages.SignUpPageTest -->
-      <class name="pages.LoginPageTest">
+      <class name="pages.HomePageTest">
         <methods>
-          <include name="init"/>
           <include name="tearDown"/>
           <include name="configureAppium"/>
           <include name="androidUserLoginPageTestPerform"/>
+          <include name="init"/>
         </methods>
-      </class> <!-- pages.LoginPageTest -->
+      </class> <!-- pages.HomePageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

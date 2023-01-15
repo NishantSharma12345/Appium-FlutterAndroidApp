@@ -16,11 +16,14 @@ public class ProductPage extends AndroidGestures
 	@AndroidFindBy(xpath = "(//android.widget.Button)[1]")
 	private WebElement backButton;
 	
-	@AndroidFindBy(xpath = "//android.view.View/android.widget.Button")
-	private WebElement cartButton;
-	
 	@AndroidFindBy(accessibility ="1")
 	private WebElement quantityNumber;
+	
+	/*@AndroidFindBy(xpath = "//android.view.View/android.widget.Button")
+	private WebElement cartButton;*/
+	
+	@AndroidFindBy(xpath = "(//android.widget.Button)[2]")
+	private WebElement cartButton;
 	
 	public ProductPage(AndroidDriver driver)
 	{
@@ -37,12 +40,12 @@ public class ProductPage extends AndroidGestures
 	public void cartButtonClick()
 	{
 		cartButton.click();
-		AppiumUtils.sleep(4000);
+		AppiumUtils.sleep(4);
 	}
 	
 	public void dragAndDropQuantityInCart()
 	{
-		dragGesture(quantityNumber,970,2000);
-		AppiumUtils.sleep(4000);
+		dragGesture(quantityNumber,959,2000);
+		AppiumUtils.sleep(4);
 	}
 }

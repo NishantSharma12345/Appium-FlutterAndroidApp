@@ -46,16 +46,16 @@ public class CartPage
 	
 	public void emptyOrNotEmptyCartPage()
 	{
-		if(addAddressButton.isDisplayed())
-		{
-			Assert.assertEquals(addAddressButton.getAttribute("content-desc"), "Add Address Now !!");
-			addAddressButton.click();
-		}
-		else
+		if(backToHomeButton.isDisplayed())
 		{
 			Assert.assertEquals(emptyCartLabel.getAttribute("content-desc"), "Your Cart Is Empty");
 			Assert.assertEquals(backToHomeButton.getAttribute("content-desc"), "Back To Home Page!!");
 			backToHomeButton.click();			
+		}
+		else if(addAddressButton.isDisplayed())
+		{
+			Assert.assertEquals(addAddressButton.getAttribute("content-desc"), "Add Address Now !!");
+			addAddressButton.click();		
 		}
 	}
 }

@@ -8,6 +8,7 @@ import baseClass.BaseClassAndroid;
 public class OrderConfirmedPageTest extends BaseClassAndroid
 {
 	LoginPage lp;
+	OTPPage otpp;
 	HomePage hp;
 	ProductPage pp;
 	CartPage cp;
@@ -18,6 +19,7 @@ public class OrderConfirmedPageTest extends BaseClassAndroid
 	public void init()
 	{
 		lp = new LoginPage(driver);
+		otpp = new OTPPage(driver);
 		hp = new HomePage(driver);
 		pp = new ProductPage(driver);
 		cp = new CartPage(driver);
@@ -29,13 +31,15 @@ public class OrderConfirmedPageTest extends BaseClassAndroid
 	public void androidOrderConfirmationPageTestPerform()
 	{
 		lp.userLogin(prop.getProperty("email"), prop.getProperty("password"));
-		//hp.singleProductScrollDown();
-		pp.cartButtonClick();
+		otpp.enterOTPNumber();
+		hp.singleProductScrollDown();
+		pp.dragAndDropQuantityInCart();
 		pp.backButtonClick();
 		hp.cartButtonClick();
 		cp.addAddressButtonClick();
 		aap.addAdressAndCheckout(prop.getProperty("address1"), prop.getProperty("address2"), prop.getProperty("country"), prop.getProperty("pincode"));
 		ocp.orderConfirmedLabelVerify();
 		ocp.goBackToHomePageClick();
+		hp.logoutButtonClick();
 	}
 }

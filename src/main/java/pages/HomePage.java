@@ -8,7 +8,6 @@ import org.testng.Assert;
 
 import helper.AndroidGestures;
 import helper.AppiumUtils;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -22,7 +21,7 @@ public class HomePage extends AndroidGestures {
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc='EXPLORE']")
 	private WebElement exploreLabel;
 
-	@AndroidFindBy(accessibility = "check some out of here!!")
+	@AndroidFindBy(accessibility = "Check some out of here!!")
 	private WebElement checkSomeLabel;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView")
@@ -69,21 +68,20 @@ public class HomePage extends AndroidGestures {
 
 	public void bannerSwipe() 
 	{
+		AppiumUtils.sleep(2);
 		AppiumUtils.waitForElementToBeClickable(driver, bannerImages.get(0));
 		for (int i = 0; i < bannerImages.size(); i++) 
 		{
 			swipeGesture(bannerImages.get(i), "left", 0.75);
 		}
 	}
-
 	
-	  public void singleProductScrollDown() 
-	  { 
-		  scrollToText("Enter your feedback");
-	      products.get(0).click(); 
-	  }
+	public void singleProductScrollDown() 
+	{ 
+		scrollToText("Enter your feedback");
+	    products.get(1).click(); 
+	}
 	 
-
 	public void productScrollUpAndDown(ProductPage pp) 
 	{
 		scrollToText("Enter your feedback");
@@ -115,6 +113,7 @@ public class HomePage extends AndroidGestures {
 
 	public void cartButtonClick() 
 	{
+		scrollToText("Enter your feedback");
 		Assert.assertEquals(cartButton.getAttribute("content-desc"), "Explore Cart Now !!");
 		cartButton.click();
 	}
@@ -129,5 +128,4 @@ public class HomePage extends AndroidGestures {
 		Assert.assertEquals(sendButton.getAttribute("content-desc"), "Send");
 		sendButton.click();
 	}
-
 }
