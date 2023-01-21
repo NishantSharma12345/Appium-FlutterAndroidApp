@@ -64,7 +64,7 @@ public class AppiumUtils
 	{
 		File source = driver.getScreenshotAs(OutputType.FILE);
 		String currentDate = DateClass.dateFormat();
-		String destination = System.getProperty("user.dir")+"//Screenshots"+testCaseName+" "+currentDate+".png";
+		String destination = System.getProperty("user.dir")+"/Screenshots/"+testCaseName+" "+currentDate+".png";
 		FileUtils.copyFile(source, new File(destination));
 		return destination;
 	}

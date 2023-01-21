@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import helper.AppiumUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -39,6 +40,9 @@ public class SignUpPage
 	@AndroidFindBy(accessibility = "Login")
 	private WebElement loginButton;
 	
+	@AndroidFindBy(xpath = "(//android.widget.Toast)[1]")
+	private WebElement toastMessage;
+	
 	public SignUpPage(AndroidDriver driver)
 	{
 		this.driver = driver;
@@ -65,12 +69,14 @@ public class SignUpPage
 		
 		Assert.assertEquals(signUpButton.getAttribute("content-desc"), "Sign Up");
 		signUpButton.click();
+		AppiumUtils.waitForElementToVisible(driver, toastMessage);
+		System.out.println(toastMessage.getAttribute("name"));
 	}
 	
 	public void loginClick()
 	{
 		Assert.assertEquals(alreadyHaveAccountText.getAttribute("content-desc"), "Already have an account? ");
 		Assert.assertEquals(loginButton.getAttribute("content-desc"), "Login");
-		loginButton.click();
+		loginButton.click();	
 	}
 }

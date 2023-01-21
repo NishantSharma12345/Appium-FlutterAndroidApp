@@ -52,7 +52,7 @@ public class BaseClassAndroid extends AppiumUtils
 			options.setDeviceName(prop.getProperty("androidDeviceName"));
 			//if(!driver.isAppInstalled("com.example.AutomationApp"))
 	       // {
-			//	options.setApp(System.getProperty("user.dir")+"/src/main/java/resources/app-release.apk");
+				//options.setApp(System.getProperty("user.dir")+"/src/main/java/resources/app-release.apk");
 		//	}
 		//	else 
 		//	{

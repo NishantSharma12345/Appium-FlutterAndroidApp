@@ -30,6 +30,22 @@
           <include name="configureAppium"/>
         </methods>
       </class> <!-- pages.CartPageTest -->
+      <class name="pages.LoginPageTest">
+        <methods>
+          <include name="init"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+          <include name="androidUserLoginPageTestPerform"/>
+        </methods>
+      </class> <!-- pages.LoginPageTest -->
+      <class name="pages.OTPPageTest">
+        <methods>
+          <include name="init"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+          <include name="androidOTPPageTestPerform"/>
+        </methods>
+      </class> <!-- pages.OTPPageTest -->
       <class name="pages.SignUpPageTest">
         <methods>
           <include name="init"/>
@@ -38,6 +54,14 @@
           <include name="configureAppium"/>
         </methods>
       </class> <!-- pages.SignUpPageTest -->
+      <class name="pages.ProductPageTest">
+        <methods>
+          <include name="androidProductPageTestPerform"/>
+          <include name="tearDown"/>
+          <include name="configureAppium"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- pages.ProductPageTest -->
       <class name="pages.HomePageTest">
         <methods>
           <include name="tearDown"/>

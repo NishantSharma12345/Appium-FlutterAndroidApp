@@ -9,7 +9,7 @@ public class ExtentReporterNG
 
 	public static ExtentReports getReporterObject()
 	{
-		String path = System.getProperty("user.dir")+"//Reports//index.html";
+		String path = System.getProperty("user.dir")+"/Reports/index.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 		reporter.config().setReportName("Appium Flutter App Automation Results");
 		reporter.config().setDocumentTitle("Appium Flutter App Test Results");
