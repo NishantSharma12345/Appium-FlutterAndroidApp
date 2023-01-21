@@ -91,10 +91,6 @@ public class HomePage extends AndroidGestures {
 		    pp.backButtonClick();
 		    swipeGesture(products.get(i), "left", 0.20);
 		}
-		//}
-		/*
-		 * else { scrollGesture(0, -600, 200, 1500, "up"); }
-		 */
 	}
 	
 	public void singleProductScrollAndLongPress() 

@@ -2,11 +2,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>Automation</groupId>
-	<artifactId>Appium-FlutterApp</artifactId>
+	<artifactId>Appium-FlutterAndroidApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Appium-FlutterApp</name>
+	<name>Appium-FlutterAndroidApp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

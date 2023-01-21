@@ -40,9 +40,6 @@ public class SignUpPage
 	@AndroidFindBy(accessibility = "Login")
 	private WebElement loginButton;
 	
-	@AndroidFindBy(xpath = "(//android.widget.Toast)[1]")
-	private WebElement toastMessage;
-	
 	public SignUpPage(AndroidDriver driver)
 	{
 		this.driver = driver;
@@ -68,9 +65,7 @@ public class SignUpPage
 		driver.hideKeyboard();
 		
 		Assert.assertEquals(signUpButton.getAttribute("content-desc"), "Sign Up");
-		signUpButton.click();
-		AppiumUtils.waitForElementToVisible(driver, toastMessage);
-		System.out.println(toastMessage.getAttribute("name"));
+		signUpButton.click();		
 	}
 	
 	public void loginClick()

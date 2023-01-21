@@ -23,7 +23,7 @@ public class AppiumUtils
 	
 	public AppiumDriverLocalService startAppiumServer(String ipAddress, int port)
 	{
-		service = new AppiumServiceBuilder().withAppiumJS(new File("/home/users/nishant.sharma/.appium/node_modules/appium/build/lib/main.js"))
+		service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\ASUS\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
 				.withIPAddress(ipAddress).usingPort(port).build();
 		
 		service.start();
@@ -64,7 +64,7 @@ public class AppiumUtils
 	{
 		File source = driver.getScreenshotAs(OutputType.FILE);
 		String currentDate = DateClass.dateFormat();
-		String destination = System.getProperty("user.dir")+"/Screenshots/"+testCaseName+" "+currentDate+".png";
+		String destination = System.getProperty("user.dir")+"\\Screenshots\\"+testCaseName+" "+currentDate+".png";
 		FileUtils.copyFile(source, new File(destination));
 		return destination;
 	}
