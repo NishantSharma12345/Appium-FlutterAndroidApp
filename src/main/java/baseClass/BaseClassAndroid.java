@@ -38,7 +38,7 @@ public class BaseClassAndroid extends AppiumUtils
 	@BeforeClass(alwaysRun=true)	
 	public void configureAppium() throws MalformedURLException
 	{
-		String ipAddress = System.getProperty("ipAddress") != null ? System.getProperty("ipAddress") : prop.getProperty("ipAddress");
+		/*String ipAddress = System.getProperty("ipAddress") != null ? System.getProperty("ipAddress") : prop.getProperty("ipAddress");
 		String port = prop.getProperty("prop");
 		
 		service = startAppiumServer(ipAddress, Integer.parseInt(port));
@@ -46,7 +46,7 @@ public class BaseClassAndroid extends AppiumUtils
 		Assert.assertTrue(service.isRunning());
 		
 		if(service.isRunning())
-		{	
+		{	*/
 			UiAutomator2Options options = new UiAutomator2Options();
 			options.setDeviceName(prop.getProperty("androidDeviceName"));
 			/*if(!driver.isAppInstalled("com.example.AutomationApp"))
@@ -63,7 +63,7 @@ public class BaseClassAndroid extends AppiumUtils
 				
 			driver = new AndroidDriver(/*service.getUrl() != null ? service.getUrl() : */new URL("http://127.0.0.1:4723/"), options);
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		}			
+	//	}			
 	}
 	
 	@AfterClass(alwaysRun=true)	
